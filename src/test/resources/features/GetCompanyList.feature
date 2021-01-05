@@ -1,4 +1,4 @@
-@test
+@test @regression
 Feature: Get Company details
   As an Admin, I want to Retrieves the collection of Company resources.
   Retrieves a Company resource.
@@ -10,3 +10,4 @@ Feature: Get Company details
     Then Verify the success code response of the API
     And Verify the total count of the companies
     And Get the list of companies
+
