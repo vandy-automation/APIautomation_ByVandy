@@ -56,12 +56,18 @@
             <version>3.7.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>3.3.0</version>
+            <scope>test</scope>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>net.serenity-bdd</groupId>-->
-<!--            <artifactId>serenity-cucumber</artifactId>-->
-<!--            <version>${serenity.cucumber.version}</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>net.serenity-bdd</groupId>-->
+        <!--            <artifactId>serenity-cucumber</artifactId>-->
+        <!--            <version>${serenity.cucumber.version}</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
@@ -191,13 +197,42 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>maven-cucumber-reporting</artifactId>
+            <version>5.0.0</version>
+        </dependency>
     </dependencies>
-
 
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.0.0</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>ApiTestEngineReporting</projectName>
+                            <outputDirectory>${project.build.directory}/site/cucumber-reports-advanced</outputDirectory>
+<!--                            <cucumberOutput>${project.build.directory}/cucumber/cucumber.json</cucumberOutput>-->
+<!--                            <skippedFails>true</skippedFails>-->
+                            <!--							<enableFlashCharts>false</enableFlashCharts>-->
+                            <buildNumber>101</buildNumber>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

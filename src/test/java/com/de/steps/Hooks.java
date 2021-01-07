@@ -14,7 +14,7 @@ public class Hooks {
 
     Constant constant = new Constant();
 
-    @Before
+//    @Before
     public void generateAuth() {
         // code to call login api and parse phpsess ID
         Response response = loginCheck(Constant.qaEnv);
